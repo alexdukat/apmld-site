@@ -82,7 +82,7 @@ a{color:#2E6B34}a:hover{color:#1F4D24}
         <div id="geo-erro" hidden role="status" style="font-size: 15px; line-height: 1.5; color: #8A3A12">Não foi possível obter a localização. Verifique se o GPS está ligado ou envie a localização depois, direto na conversa do WhatsApp.</div>
       </div>
 
-      <a id="btn-enviar" hidden href="#" target="_blank" rel="noopener" style="display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 24px; border-radius: 999px; background: #2E6B34; color: #FFFFFF; font-weight: 700; font-size: 18px; text-decoration: none"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg> Enviar pelo WhatsApp</a>
+      <a id="btn-enviar" href="#" target="_blank" rel="noopener" style="display: none; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 24px; border-radius: 999px; background: #2E6B34; color: #FFFFFF; font-weight: 700; font-size: 18px; text-decoration: none"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg> Enviar pelo WhatsApp</a>
       <div id="falta" style="display: flex; align-items: center; justify-content: center; min-height: 56px; padding: 0 24px; border-radius: 999px; background: #E4DCC8; color: #5B5440; font-weight: 700; font-size: 17px; text-align: center">Preencha nome e telefone para enviar</div>
 
       <p style="margin: 0; font-size: 14px; line-height: 1.55; color: #5B6B4E">Seus dados são usados apenas pela APMLD para entrar em contato sobre a associação (Lei nº 13.709/2018 – LGPD). Para pedir a exclusão, fale com a associação pelo WhatsApp (73) 99905-1415.</p>
@@ -104,7 +104,7 @@ a{color:#2E6B34}a:hover{color:#1F4D24}
   }
   function update(){
     var ok=f.nome.value.trim().length>2 && f.tel.value.replace(/[^0-9]/g,'').length>=10;
-    $('btn-enviar').hidden=!ok; $('falta').hidden=ok;
+    $('btn-enviar').style.display=ok?'flex':'none'; $('falta').style.display=ok?'none':'flex';
     if(ok) $('btn-enviar').href=build();
   }
   Object.keys(f).forEach(function(k){f[k].addEventListener('input',update);f[k].addEventListener('change',update)});
