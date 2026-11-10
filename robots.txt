@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://apmld.org.br/sitemap.xml
