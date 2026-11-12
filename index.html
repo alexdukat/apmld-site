@@ -22,7 +22,41 @@
 <style>
 html{scroll-behavior:smooth}
 img{max-width:100%}
-@media (max-width:760px){.nav{display:none}}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(251,247,238,0.96);border-bottom:1px solid #E4DCC8}
+.hdr-in{max-width:1240px;margin:0 auto;padding:12px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#24361C}
+.brand-logo{width:64px;height:65px;object-fit:contain}
+.brand-sub{font-size:13px;color:#5B6B4E}
+.nav{display:flex;flex-wrap:wrap;gap:22px;align-items:center}
+.nav .ni{display:none}
+.hero-in{max-width:1240px;margin:0 auto;padding:96px 24px 120px;display:flex;flex-wrap:wrap;align-items:center;gap:48px}
+.hero-logo{flex:0 1 340px;display:flex;justify-content:center}
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;align-items:start}
+.prog summary{list-style:none;cursor:pointer;display:block}
+.prog summary::-webkit-details-marker{display:none}
+.prog summary:focus-visible{outline:3px solid #F2B705;outline-offset:-3px}
+.prog-head{padding:18px 22px 20px;display:flex;flex-direction:column;gap:10px}
+.prog .more{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 16px;border-radius:999px;background:#E9F1E2;color:#1F4D24;font-weight:700;font-size:15px}
+.prog .m-close{display:none}
+.prog[open] .m-open{display:none}
+.prog[open] .m-close{display:inline}
+.prog .chev{transition:transform .2s}
+.prog[open] .chev{transform:rotate(180deg)}
+.prog-body{padding:0 22px 22px;display:flex;flex-direction:column;gap:12px;border-top:1px solid #EFE8D6;padding-top:16px}
+@media (max-width:760px){
+  .site-header{position:static}
+  .hdr-in{padding:14px 16px 16px;justify-content:center;gap:14px}
+  .brand{width:100%;justify-content:center}
+  .brand-logo{width:56px;height:57px}
+  .site-header .hdr-cta{display:none}
+  .nav{width:100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .site-header .nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:68px;padding:8px 4px;border-radius:16px;background:#FFFFFF;border:1px solid #E4DCC8;font-size:14px;text-align:center;line-height:1.15}
+  .site-header .nav a:active{background:#E9F1E2}
+  .nav .ni{display:block;color:#2E6B34;line-height:0}
+  .hero-in{padding:44px 20px 84px;gap:24px}
+  .hero-logo{display:none}
+  .prog-grid{grid-template-columns:1fr;gap:14px}
+}
 
 body{margin:0;background:#FBF7EE}
 a{color:#2E6B34}a:hover{color:#1F4D24}
@@ -47,29 +81,29 @@ a{color:#2E6B34}a:hover{color:#1F4D24}
 <body>
 <div style="font-family: Inter, system-ui, sans-serif; color: #24361C; background: #FBF7EE; width: 100%; overflow: hidden">
 
-  <header style="position: sticky; top: 0; z-index: 10; background: rgba(251,247,238,0.96); border-bottom: 1px solid #E4DCC8">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
-      <a href="#inicio" style="display: flex; align-items: center; gap: 14px; text-decoration: none; color: #24361C">
-        <img src="/img/logo.png" alt="Logo da APMLD" style="width: 64px; height: 65px; object-fit: contain">
+  <header class="site-header">
+    <div class="hdr-in">
+      <a href="#inicio" class="brand">
+        <img src="/img/logo.png" alt="Logo da APMLD" class="brand-logo">
         <span style="display: flex; flex-direction: column; line-height: 1.15">
           <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.5px">APMLD</span>
-          <span style="font-size: 13px; color: #5B6B4E">Produtores e Moradores da Lagoa Dantas</span>
+          <span class="brand-sub">Produtores e Moradores da Lagoa Dantas</span>
         </span>
       </a>
-      <nav class="nav" aria-label="Menu principal" style="display: flex; flex-wrap: wrap; gap: 22px; align-items: center">
-        <a href="#trator">Trator</a>
-        <a href="#programas">Programas</a>
-        <a href="#servicos">Serviços úteis</a>
-        <a href="#melhorias">Melhorias</a>
-        <a href="#associe">Faça parte</a>
-        <a href="#contato">Contato</a>
+      <nav class="nav" aria-label="Menu principal">
+        <a href="#trator"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="16" r="4"></circle><circle cx="18" cy="17.500" r="2.500"></circle><path d="M11 16h4.500"></path><path d="M5 12V6h6l1.500 6"></path><path d="M12.500 12H19v3"></path><path d="M17 12V8"></path></svg></span><span>Trator</span></a>
+        <a href="#programas"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="4"></circle><path d="M8 14.500v3"></path><path d="M17 20v-9"></path><path d="M17 11c0-3 2-5 5-5 0 3-2 5-5 5z"></path><path d="M17 15c0-2-1.500-3.500-4-3.500 0 2 1.500 3.500 4 3.500z"></path></svg></span><span>Programas</span></a>
+        <a href="#servicos"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg></span><span>Serviços</span></a>
+        <a href="#melhorias"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M10 20v-6h4v6"></path></svg></span><span>Melhorias</span></a>
+        <a href="#associe"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.500-6-11a6 6 0 0 1 12 0c0 5.500-6 11-6 11z"></path><circle cx="12" cy="10" r="2.200"></circle></svg></span><span>Faça parte</span></a>
+        <a href="#contato"><span class="ni"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"></path></svg></span><span>Contato</span></a>
       </nav>
-      <a class="btn btn-green" href="/associe-se">Quero fazer parte</a>
+      <a class="btn btn-green hdr-cta" href="/associe-se">Quero fazer parte</a>
     </div>
   </header>
 
   <section id="inicio" class="hero-bg" style="position: relative">
-    <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px 120px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px">
+    <div class="hero-in">
       <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px; color: #FFFFFF">
         <span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; background: rgba(242,183,5,0.18); border: 1px solid rgba(242,183,5,0.6); color: #FFE08A; padding: 8px 16px; border-radius: 999px; font-size: 14px; font-weight: 600">
           <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-6 2-10 8-14-6 0-10 2-12 6"></path><path d="M12 22c0-5-2-8-7-10 4 0 6 1 7 3"></path></svg>
@@ -78,11 +112,11 @@ a{color:#2E6B34}a:hover{color:#1F4D24}
         <h1 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(40px, 5.2vw, 68px); line-height: 1.04; letter-spacing: -1px">Na Lagoa Dantas, ninguém planta sozinho.</h1>
         <p style="margin: 0; font-size: 20px; line-height: 1.55; color: #E8F0DF; max-width: 560px">A APMLD reúne as famílias agricultoras da Lagoa Dantas para produzir melhor, acessar programas públicos e fortalecer a vida no campo.</p>
         <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px">
-          <a class="btn btn-sun" href="#trator">Conheça o trator da associação</a>
-          <a class="btn btn-ghost" href="#programas">Ver os programas</a>
+          <a class="btn btn-sun" href="#programas">Ver os programas</a>
+          <a class="btn btn-ghost" href="/associe-se">Quero fazer parte</a>
         </div>
       </div>
-      <div style="flex: 0 1 340px; display: flex; justify-content: center">
+      <div class="hero-logo">
         <img src="/img/logo.png" alt="Selo da Associação de Produtores e Moradores da Lagoa Dantas" style="width: 320px; height: 327px; object-fit: contain">
       </div>
     </div>
@@ -130,70 +164,105 @@ a{color:#2E6B34}a:hover{color:#1F4D24}
       <a class="btn btn-sun" href="https://www.gov.br/mda/pt-br/acesso-a-informacao/acoes-e-programas/programas-projetos-acoes-obras-e-atividades/cadastro-nacional-da-agricultura-familiar/PanfletoOqueoCAF.pdf">Como tirar o CAF</a>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px">
-      <article class="prog"><img src="/img/tecnica.jpg" alt="Equipe técnica em reunião com moradores da Lagoa Dantas" style="width: 100%; height: 150px; object-fit: cover; object-position: center 40%; display: block">
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-est">Estadual · CAR/SDR</span>
-          <h3>Parceiros da Mata</h3>
+    <div class="prog-grid">
+      <details class="prog">
+        <summary><img src="/img/tecnica.jpg" alt="Equipe técnica em reunião com moradores da Lagoa Dantas" style="width: 100%; height: 150px; object-fit: cover; object-position: center 40%; display: block">
+          <div class="prog-head">
+            <span class="tag tag-est">Estadual · CAR/SDR</span>
+            <h3>Parceiros da Mata</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>Projeto do Governo da Bahia para o desenvolvimento sustentável de comunidades rurais da Mata Atlântica: mais renda, segurança alimentar, acesso a serviços básicos e proteção ambiental.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Atua em 77 municípios e deve beneficiar cerca de 352 mil pessoas</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Inclui o território Médio Rio de Contas, onde fica Jequié</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Assistência técnica continuada para as comunidades selecionadas</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/casacivil/noticias/2025-07/2811/projeto-parceiros-da-mata-apresenta-comunidades-selecionadas-para-assistencia">Saiba mais no portal da Bahia →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/casacivil/noticias/2025-07/2811/projeto-parceiros-da-mata-apresenta-comunidades-selecionadas-para-assistencia">Saiba mais no portal da Bahia →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #2E6B34; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h14l-1.500 9h-11z"></path><path d="M8 10l4-6 4 6"></path><path d="M10 13v3"></path><path d="M14 13v3"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">O governo compra sua produção</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-fed">Federal · MDS/Conab</span>
-          <h3>PAA – Programa de Aquisição de Alimentos</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #2E6B34; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10h14l-1.500 9h-11z"></path><path d="M8 10l4-6 4 6"></path><path d="M10 13v3"></path><path d="M14 13v3"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">O governo compra sua produção</div></div>
+          <div class="prog-head">
+            <span class="tag tag-fed">Federal · MDS/Conab</span>
+            <h3>PAA – Programa de Aquisição de Alimentos</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>O governo compra alimentos direto do agricultor familiar, sem licitação e a preço de mercado, e doa para quem precisa: restaurantes populares, cozinhas solidárias e entidades.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Venda individual ou por meio da associação</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Limite anual por agricultor e por organização definido em norma</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Exige CAF ativo</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.gov.br/conab/pt-br/atuacao/paa/CARTILHAPAA.pdf">Cartilha da Conab →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.gov.br/conab/pt-br/atuacao/paa/CARTILHAPAA.pdf">Cartilha da Conab →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #F2B705; color: #1B2A12; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.500"></circle></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Da roça para a merenda</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-fed">Federal · FNDE</span>
-          <h3>PNAE – Alimentação Escolar</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #F2B705; color: #1B2A12; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3.500"></circle></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Da roça para a merenda</div></div>
+          <div class="prog-head">
+            <span class="tag tag-fed">Federal · FNDE</span>
+            <h3>PNAE – Alimentação Escolar</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>A merenda das escolas públicas compra da agricultura familiar. Desde 2026, no mínimo 45% dos recursos federais do programa vão para esses produtos.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Venda por chamada pública da prefeitura ou do estado</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Prioridade para grupos organizados, mulheres e comunidades tradicionais</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Exige CAF ativo</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15226.htm">Lei nº 15.226/2025 →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/lei/L15226.htm">Lei nº 15.226/2025 →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #24477A; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="4"></circle><path d="M8 14.500v3"></path><path d="M17 20v-9"></path><path d="M17 11c0-3 2-5 5-5 0 3-2 5-5 5z"></path><path d="M17 15c0-2-1.500-3.500-4-3.500 0 2 1.500 3.500 4 3.500z"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Crédito para plantar e investir</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-fed">Federal · MDA</span>
-          <h3>Pronaf – Plano Safra 2026/2027</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #24477A; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="16" r="4"></circle><path d="M8 14.500v3"></path><path d="M17 20v-9"></path><path d="M17 11c0-3 2-5 5-5 0 3-2 5-5 5z"></path><path d="M17 15c0-2-1.500-3.500-4-3.500 0 2 1.500 3.500 4 3.500z"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Crédito para plantar e investir</div></div>
+          <div class="prog-head">
+            <span class="tag tag-fed">Federal · MDA</span>
+            <h3>Pronaf – Plano Safra 2026/2027</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>Crédito rural com juros reduzidos para custeio da lavoura e investimento na propriedade, como máquinas, irrigação e melhorias.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>R$ 85,2 bilhões em crédito no ciclo de jul/2026 a jun/2027</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Custeio com juros de 1% a 7,5% ao ano</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Exige CAF com enquadramento no Pronaf</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.gov.br/mda/pt-br/noticias/2026/07/plano-safra-da-agricultura-familiar-2026-2027">Linhas de crédito no MDA →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.gov.br/mda/pt-br/noticias/2026/07/plano-safra-da-agricultura-familiar-2026-2027">Linhas de crédito no MDA →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #A8431A; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"></path><path d="M5 10v8"></path><path d="M9.500 10v8"></path><path d="M14.500 10v8"></path><path d="M19 10v8"></path><path d="M3 20h18"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Microcrédito do Banco do Nordeste</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-fed">Federal · Banco do Nordeste</span>
-          <h3>Crediamigo e Agroamigo</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #A8431A; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-6 9 6"></path><path d="M5 10v8"></path><path d="M9.500 10v8"></path><path d="M14.500 10v8"></path><path d="M19 10v8"></path><path d="M3 20h18"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Microcrédito do Banco do Nordeste</div></div>
+          <div class="prog-head">
+            <span class="tag tag-fed">Federal · Banco do Nordeste</span>
+            <h3>Crediamigo e Agroamigo</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>Microcrédito do Banco do Nordeste com orientação de um agente de crédito. O Crediamigo atende pequenos negócios; o Agroamigo atende a agricultura familiar.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Crediamigo: capital de giro, máquinas, equipamentos e reformas para quem vende, produz ou presta serviço</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Crediamigo Delas: crédito orientado para mulheres empreendedoras</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Agroamigo: microcrédito rural para agricultores familiares</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.bnb.gov.br/crediamigo">Crediamigo no BNB →</a><a class="src" href="https://www.bnb.gov.br/agroamigo">Agroamigo no BNB →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.bnb.gov.br/crediamigo">Crediamigo no BNB →</a><a class="src" href="https://www.bnb.gov.br/agroamigo">Agroamigo no BNB →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #6B5212; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.500"></circle><path d="M7 2v1"></path><path d="M2 7h1"></path><path d="M3.500 3.500l.7.7"></path><path d="M9 17a4 4 0 0 1 1-7.800 5 5 0 0 1 9 2.800 2.500 2.500 0 0 1-1 5z"></path><path d="M11 20v1.500"></path><path d="M15 20v1.500"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Proteção contra seca e chuva</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-fed">Federal · executado pela SDR-BA</span>
-          <h3>Garantia-Safra</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #6B5212; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="7" r="2.500"></circle><path d="M7 2v1"></path><path d="M2 7h1"></path><path d="M3.500 3.500l.7.7"></path><path d="M9 17a4 4 0 0 1 1-7.800 5 5 0 0 1 9 2.800 2.500 2.500 0 0 1-1 5z"></path><path d="M11 20v1.500"></path><path d="M15 20v1.500"></path></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Proteção contra seca e chuva</div></div>
+          <div class="prog-head">
+            <span class="tag tag-fed">Federal · executado pela SDR-BA</span>
+            <h3>Garantia-Safra</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>Renda de R$ 1.200, em parcela única, para quem perder pelo menos metade da lavoura por seca ou excesso de chuva.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Para cultivo de sequeiro de 0,6 a 5 ha de feijão, milho, arroz, mandioca ou algodão</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>O município precisa aderir ao programa</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Exige CAF e renda familiar de até 1,5 salário mínimo</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/sdr/garantia-safra">Regras na SDR Bahia →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/sdr/garantia-safra">Regras na SDR Bahia →</a></div>
         </div>
-      </article>
-<article class="prog"><div style="height: 150px; background: #1F4D24; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10v9H3z"></path><path d="M13 10h4l3 3v3h-7z"></path><circle cx="7" cy="17.500" r="1.800"></circle><circle cx="16.500" cy="17.500" r="1.800"></circle></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Mais produção, mais venda</div></div>
-        <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 12px; flex: 1">
-          <span class="tag tag-est">Estadual · CAR/SDR</span>
-          <h3>Bahia que Produz e Alimenta</h3>
+      </details>
+<details class="prog">
+        <summary><div style="height: 150px; background: #1F4D24; color: #FFFFFF; display: flex; align-items: center; gap: 18px; padding: 0 26px"><div style="flex: none; width: 96px; height: 96px; border-radius: 50%; background: rgba(255,255,255,0.16); display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h10v9H3z"></path><path d="M13 10h4l3 3v3h-7z"></path><circle cx="7" cy="17.500" r="1.800"></circle><circle cx="16.500" cy="17.500" r="1.800"></circle></svg></div><div style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1">Mais produção, mais venda</div></div>
+          <div class="prog-head">
+            <span class="tag tag-est">Estadual · CAR/SDR</span>
+            <h3>Bahia que Produz e Alimenta</h3>
+            <span class="more"><span class="m-open">Saiba mais</span><span class="m-close">Fechar</span><svg class="chev" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg></span>
+          </div>
+        </summary>
+        <div class="prog-body">
           <p>Projeto do Governo da Bahia, com apoio do Banco Mundial, para aumentar a produção e as vendas da agricultura familiar.</p>
           <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px"><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Apoio a novas tecnologias e acesso a mercados</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Acesso à água e infraestrutura produtiva</span></li><li class="fact"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6B34" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M5 12l5 5L20 7"></path></svg><span>Entregas de equipamentos para organizações rurais</span></li></ul>
-          <div style="margin-top: auto; padding-top: 6px; display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/sdr/node?page=12">Notícias na SDR Bahia →</a></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px 20px"><a class="src" href="https://www.ba.gov.br/sdr/node?page=12">Notícias na SDR Bahia →</a></div>
         </div>
-      </article>
+      </details>
     </div>
     <p style="margin: 20px 0 0; font-size: 14px; color: #6B7A5E">Informações conferidas em novembro de 2026. Regras, prazos e valores mudam: confirme sempre na fonte oficial.</p>
   </section>
